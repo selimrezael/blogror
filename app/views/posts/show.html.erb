@@ -16,6 +16,12 @@
   </p>
 <% end %>
 
+<p>
+  <%= link_to 'Destroy Comment', [comment.post, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
