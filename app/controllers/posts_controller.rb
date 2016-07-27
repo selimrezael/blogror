@@ -18,7 +18,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    # @user = User.find(params[:id]) doesnt work
+    # i think from session i should retrieve user id
+    @user = current_user
+    @post = @user.posts.create(post_params)
 
     if @post.save
       redirect_to @post
