@@ -1,24 +1,13 @@
-# README
+# BLOG ROR
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is multi user blog, where users can post and connect.
 
-Things you may want to cover:
+Features you may want to build:
 
-* Ruby version
+* User authentication with devise
 
-* System dependencies
+* User can create and update posts
 
-* Configuration
+* User can crate and update comments on posts
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* more to come ...
