@@ -1,4 +1,5 @@
-<%= form_for([@post, @post.comments.build]) do |f| %>
+<%#= form_for([@post, @post.comments.build]) do |f| %>
+<%= form_for [@post, @comment] do |f| %>
   <p>
     <%= f.label :body %><br>
     <%= f.text_area :body %>

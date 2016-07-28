@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
+
   end
 
   def create
@@ -18,7 +19,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
 
-    if @comment.update(comments_params)
+    if @comment.update(comment_params)
       redirect_to post_path(@post)
     else
       render 'edit'
