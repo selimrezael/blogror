@@ -14,10 +14,12 @@
   <p>
     <%= comment.body %>
   </p>
-  <% if user_signed_in? %>
-    <%= link_to 'Delete Comment', [comment.post, comment],
+  <% @comments.each do |comment| %>
+    <% if current_user == comment.user%>
+      <%= link_to 'Delete Comment', [comment.post, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
+    <% end %>
   <% end %>
 
 <% end %>

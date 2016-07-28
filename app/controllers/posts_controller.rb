@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.all
   end
 
   def new
@@ -24,7 +25,7 @@ class PostsController < ApplicationController
     @post = @user.posts.create(post_params)
 
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: "Your post was successful."
     else
       render 'new'
     end
