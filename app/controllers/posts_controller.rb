@@ -34,10 +34,10 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update(post_params)
+    if @post.update(post_params) && current_user == @post.user
       redirect_to @post
     else
-      render 'edit'
+      redirect_to(@post, notice: "You cannot edit this post")
     end
   end
 
