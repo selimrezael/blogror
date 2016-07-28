@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new comment_params
@@ -9,6 +14,16 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post), notice: "Your comment was successful."
   end
 
+  def update
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+
+    if @comment.update(comments_params)
+      redirect_to post_path(@post)
+    else
+      render 'edit'
+    end
+  end
 
   def destroy
     @post = Post.find(params[:post_id])
